@@ -8,18 +8,20 @@ const Projects = () => {
       title: 'StyleDecor',
       description: 'A comprehensive service booking platform featuring user authentication, role-based dashboards (Admin/User), Stripe payment integration, and booking management system.',
       tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe', 'Firebase'],
-      demo: '#',
-      code: '#',
-      image: 'https://placehold.co/600x400?text=StyleDecor'
+      Live_link: 'https://benevolent-churros-058ead.netlify.app/',
+      Clint: 'https://github.com/RupomPB/style-decor-project-client',
+      Server: 'https://github.com/RupomPB/style-decor-project-server',
+      image: 'https://i.ibb.co.com/hJXSjtP5/image.png'
     },
     {
       id: 2,
-      title: 'E-Commerce Platform',
+      title: 'finease-project',
       description: 'A full-featured online store with product catalog, shopping cart, user reviews, and secure checkout process.',
       tech: ['React', 'Redux', 'Node.js', 'MongoDB'],
-      demo: '#',
-      code: '#',
-      image: 'https://placehold.co/600x400?text=E-Commerce'
+      Live_link: 'https://finease-project.netlify.app/',
+      Clint: 'https://github.com/RupomPB/Assignment-10-Personal-Finance-Management-App-client',
+      Server: 'https://github.com/RupomPB/Assignment-10-Personal-Finance-Management-App-server',
+      image: 'https://i.ibb.co.com/TDvZtPwD/image.png'
     },
     {
       id: 3,
