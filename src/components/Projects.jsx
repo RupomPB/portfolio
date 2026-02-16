@@ -16,8 +16,8 @@ const projects = [
   {
     id: 2,
     title: 'Finease Project',
-    description: ' Personal Finance Management Key Features FinEase is a personal finance management web application users can manage their income and expenses The platform allows users to record transactions, and view financial summaries with insightful charts and reports. Smart Transaction Management (Full CRUD) 📊 Interactive Reports & Data Visualization 🔐 Secure Authentication System ⚙️ Protected Routes with Conditional Navigation 🧠 Instant UI Updates without Page Reloads Techonology Uses react react-router react-icons lucide-react recharts sweetalert2 react-toastify react-spinners axios firebase',
-    tech: ['React', 'Redux', 'Node.js', 'MongoDB'],
+    description: 'Personal Finance Management platform allowing users to track income/expenses with visual charts. Features secure auth, transaction history, and instant UI updates.',
+    tech: ['React', 'Redux', 'Node.js', 'MongoDB', 'Recharts'],
     live: 'https://finease-project.netlify.app/',
     client: 'https://github.com/RupomPB/Assignment-10-Personal-Finance-Management-App-client',
     server: 'https://github.com/RupomPB/Assignment-10-Personal-Finance-Management-App-server',
@@ -75,41 +75,50 @@ const Projects = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
           className="flex flex-col gap-16"
         >
           {projects.map(project => (
             <motion.div
               key={project.id}
               variants={cardVariants}
-              whileHover={{ scale: 1.02 }}
-              className="flex flex-col md:flex-row glass-card overflow-hidden rounded-3xl shadow-2xl border border-white/10 hover:border-cyan-500/30 transition-all duration-500"
+              whileHover={{ y: -10 }}
+              className="flex flex-col md:flex-row glass-card overflow-hidden rounded-3xl shadow-2xl border border-white/10 hover:border-cyan-500/30 transition-all duration-500 group"
             >
               {/* Project Image */}
               <div className="relative md:w-1/2 h-64 md:h-auto overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110 hover:rotate-1"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1 will-change-transform"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent dark:from-black/70 opacity-70"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+                
+                {/* Tech overlay on mobile/image hover */}
+                <div className="absolute bottom-4 left-4 flex flex-wrap gap-2 md:hidden">
+                    {project.tech.slice(0, 3).map((tech, i) => (
+                        <span key={i} className="text-xs bg-black/50 backdrop-blur-md text-white px-2 py-1 rounded-full border border-white/10">{tech}</span>
+                     ))}
+                </div>
               </div>
 
               {/* Project Info */}
-              <div className="p-8 flex flex-col justify-between md:w-1/2 relative">
+              <div className="p-8 flex flex-col justify-between md:w-1/2 relative bg-white/50 dark:bg-black/20 backdrop-blur-sm">
                 <div>
-                  <h3 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-4 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors duration-300">{project.title}</h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">{project.description}</p>
+                  <h3 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-4 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors duration-300">{project.title}</h3>
+                  <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed line-clamp-4">{project.description}</p>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="hidden md:flex flex-wrap gap-2 mb-8">
                     {project.tech.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 text-xs font-semibold text-cyan-700 dark:text-cyan-300 bg-cyan-100 dark:bg-cyan-900/20 rounded-full border border-cyan-200 dark:border-cyan-500/20 backdrop-blur-sm">{tech}</span>
+                      <span key={i} className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-cyan-700 dark:text-cyan-300 bg-cyan-100 dark:bg-cyan-900/30 rounded-full border border-cyan-200 dark:border-cyan-500/30 shadow-sm">{tech}</span>
                     ))}
                   </div>
                 </div>
 
                 <div className="flex gap-4 mt-auto flex-wrap">
                   <a href={project.live} target="_blank" rel="noreferrer" className="flex-1 py-3 text-center rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold hover:from-cyan-500 hover:to-blue-500 shadow-lg hover:shadow-cyan-500/40 transition-all duration-300 flex items-center justify-center gap-2 text-sm hover:-translate-y-1">
-                    <FaExternalLinkAlt /> Demo
+                    <FaExternalLinkAlt /> Live Demo
                   </a>
                   <a href={project.client} target="_blank" rel="noreferrer" className="flex-1 py-3 text-center rounded-xl border border-gray-300 dark:border-white/10 bg-white/50 dark:bg-white/5 text-gray-700 dark:text-gray-300 font-bold hover:bg-gray-100 dark:hover:bg-white/10 hover:border-gray-400 dark:hover:border-white/30 hover:text-black dark:hover:text-white transition-all duration-300 flex items-center justify-center gap-2 text-sm hover:-translate-y-1">
                     <FaGithub /> Client

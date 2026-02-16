@@ -53,17 +53,6 @@ const Skills = () => {
     }
   };
 
-  const floatingVariants = {
-    animate: {
-      y: [0, -8, 0],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
-
   return (
     <div name="skills" className="w-full min-h-screen bg-gradient-to-b from-white to-gray-200 dark:from-black dark:to-gray-800 text-gray-900 dark:text-white py-32 relative overflow-hidden transition-colors duration-300">
       {/* Ambient Moving Background */}
@@ -123,10 +112,13 @@ const Skills = () => {
                   >
                     {/* Floating Animation Wrapper */}
                     <motion.div
-                       variants={floatingVariants}
-                       animate="animate"
-                       // Add random delay to prevent synchronized floating
-                       transition={{ delay: skillIndex * 0.1 }} 
+                       animate={{ y: [0, -8, 0] }}
+                       transition={{ 
+                           duration: 3,
+                           repeat: Infinity,
+                           ease: "easeInOut",
+                           delay: skillIndex * 0.1 // Random delay
+                       }} 
                        className="flex flex-col items-center gap-4 w-full"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

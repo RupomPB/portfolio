@@ -25,7 +25,7 @@ const Contact = () => {
     data.append('message', formData.message);
 
     try {
-      const response = await fetch("https://getform.io/f/your-form-id", { // REPLACE WITH YOUR GETFORM ID
+      const response = await fetch("https://getform.io/f/3eodqc8og26", { // REPLACE WITH YOUR GETFORM ID
         method: "POST",
         body: data,
         headers: {
@@ -87,8 +87,16 @@ const Contact = () => {
     <div name="contact" className="w-full min-h-screen bg-gradient-to-b from-gray-200 to-white dark:from-gray-800 dark:to-black p-4 text-gray-900 dark:text-white py-32 relative overflow-hidden transition-colors duration-300">
       {/* Background Ambience */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-         <div className="absolute top-[20%] right-[10%] w-[40%] h-[40%] bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-[120px] animate-pulse-slow"></div>
-         <div className="absolute bottom-[10%] left-[10%] w-[30%] h-[30%] bg-cyan-400/10 dark:bg-cyan-600/10 rounded-full blur-[100px] animate-pulse-slow delay-1000"></div>
+         <motion.div 
+            animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[20%] right-[10%] w-[40%] h-[40%] bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-[120px]"
+         />
+         <motion.div 
+            animate={{ x: [0, -50, 0], y: [0, 30, 0] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-[10%] left-[10%] w-[30%] h-[30%] bg-cyan-400/10 dark:bg-cyan-600/10 rounded-full blur-[100px]"
+         />
       </div>
 
       <div className="flex flex-col p-4 justify-center max-w-screen-xl mx-auto h-full relative z-10">
@@ -114,33 +122,35 @@ const Contact = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-8"
           >
             <div className="mb-4">
                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Let's Talk About Your Project</h3>
-               <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+               <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg font-light">
                  I'm currently available for freelance work and open to new opportunities. 
                  Whether you have a question or just want to connect, feel free to reach out!
                </p>
             </div>
 
-            {contactInfo.map((item) => (
-              <a 
-                key={item.id} 
-                href={item.link}
-                target="_blank"
-                rel="noreferrer"
-                className={`group glass-card p-6 flex items-center gap-6 cursor-pointer hover:border-opacity-50 transition-all duration-300 ${item.border}`}
-              >
-                <div className={`p-4 rounded-full ${item.bg} ${item.color} group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 className="text-gray-500 dark:text-gray-400 text-sm font-semibold uppercase tracking-wider mb-1">{item.title}</h4>
-                  <p className={`text-xl font-bold text-gray-900 dark:text-white ${item.hover} transition-colors duration-300`}>{item.value}</p>
-                </div>
-              </a>
-            ))}
+            <div className="flex flex-col gap-6">
+                {contactInfo.map((item) => (
+                <a 
+                    key={item.id} 
+                    href={item.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`group glass-card p-6 flex items-center gap-6 cursor-pointer hover:border-cyan-500/30 transition-all duration-300 ${item.border}`}
+                >
+                    <div className={`p-4 rounded-full ${item.bg} ${item.color} group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                    {item.icon}
+                    </div>
+                    <div>
+                    <h4 className="text-gray-500 dark:text-gray-400 text-sm font-semibold uppercase tracking-wider mb-1">{item.title}</h4>
+                    <p className={`text-xl font-bold text-gray-900 dark:text-white ${item.hover} transition-colors duration-300`}>{item.value}</p>
+                    </div>
+                </a>
+                ))}
+            </div>
           </motion.div>
 
           {/* Right Column: Contact Form */}
