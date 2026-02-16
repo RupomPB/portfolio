@@ -165,9 +165,17 @@ const Contact = () => {
               
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2 group/input">
-                    <label className="text-gray-500 dark:text-gray-400 text-sm font-bold ml-1 uppercase tracking-wider group-focus-within/input:text-cyan-500 dark:group-focus-within/input:text-cyan-400 transition-colors duration-300">Name</label>
-                    <input
-                    type="text"
+                    <div className="relative">
+                        <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="w-full bg-gray-100 dark:bg-black/30 text-gray-900 dark:text-white rounded-t-lg outline-none px-3 py-3 border-b-2 border-transparent transition-all duration-300 peer"
+                        required
+                        />
+                         <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-500 peer-focus:w-full"></div>
+                    </div>
                     name="name"
                     value={formData.name}
                     onChange={handleChange}

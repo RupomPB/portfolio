@@ -38,15 +38,28 @@ const About = () => {
         >
             <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
+const Highlight = ({ children, color }) => (
+    <motion.span
+        className={`font-bold cursor-pointer inline-block ${color}`}
+        whileHover={{ scale: 1.1, color: "#fff", textShadow: "0px 0px 8px rgb(255,255,255)" }}
+        transition={{ type: "spring", stiffness: 300 }}
+    >
+        {children}
+    </motion.span>
+);
+
+// Inside About component, replace text with Highlight components
+// ...
             <p className="text-xl text-gray-700 dark:text-gray-300 leading-loose tracking-wide font-light">
-            I am <span className="text-cyan-600 dark:text-cyan-400 font-bold">Rupom Prosad Badhan</span>, a dedicated MERN Stack Developer driven by a relentless curiosity for technology. My coding journey started with the basics of HTML and CSS, but my desire to build dynamic, interactive applications led me to master the MERN stack. I view every project as an opportunity to learn, grow, and refine my craft, treating code quality and scalability as non-negotiables.
+            I am <Highlight color="text-cyan-600 dark:text-cyan-400">Rupom Prosad Badhan</Highlight>, a dedicated MERN Stack Developer driven by a relentless curiosity for technology. My coding journey started with the basics of HTML and CSS, but my desire to build dynamic, interactive applications led me to master the MERN stack. I view every project as an opportunity to learn, grow, and refine my craft, treating code quality and scalability as non-negotiables.
             </p>
 
             <br />
 
             <p className="text-xl text-gray-700 dark:text-gray-300 leading-loose tracking-wide font-light">
-            What excites me most is the intersection of logic and creativity. I love the process of turning abstract ideas into robust full-stack applications, ensuring that every user interaction is smooth and every database query is optimized. Whether it's crafting a sleek user interface with <span className="text-cyan-600 dark:text-cyan-400 font-bold">React</span> and <span className="text-cyan-600 dark:text-cyan-400 font-bold">Tailwind</span> or structuring a complex API with <span className="text-cyan-600 dark:text-cyan-400 font-bold">Node.js</span> and <span className="text-cyan-600 dark:text-cyan-400 font-bold">MongoDB</span>, I approach every task with precision and a user-first mindset.
+            What excites me most is the intersection of logic and creativity. I love the process of turning abstract ideas into robust full-stack applications, ensuring that every user interaction is smooth and every database query is optimized. Whether it's crafting a sleek user interface with <Highlight color="text-cyan-600 dark:text-cyan-400">React</Highlight> and <Highlight color="text-cyan-600 dark:text-cyan-400">Tailwind</Highlight> or structuring a complex API with <Highlight color="text-cyan-600 dark:text-cyan-400">Node.js</Highlight> and <Highlight color="text-cyan-600 dark:text-cyan-400">MongoDB</Highlight>, I approach every task with precision and a user-first mindset.
             </p>
+// ...
 
             <br />
 

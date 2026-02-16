@@ -102,12 +102,46 @@ const Skills = () => {
                 {category.title}
               </motion.h3>
               
+const TiltCard = ({ children, className }) => {
+    const x = motion.useMotionValue(0);
+    const y = motion.useMotionValue(0);
+    
+    const rotateX = motion.useTransform(y, [-50, 50], [15, -15]);
+    const rotateY = motion.useTransform(x, [-50, 50], [-15, 15]);
+
+    const handleMouseMove = (event) => {
+        const rect = event.currentTarget.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        x.set((event.clientX - centerX) / 2); // Divide by factor to reduce sensitivity
+        y.set((event.clientY - centerY) / 2);
+    };
+
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
+    };
+
+    return (
+        <motion.div
+            style={{ perspective: 1000, rotateX, rotateY }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            className={className}
+            whileHover={{ scale: 1.05 }}
+        >
+            {children}
+        </motion.div>
+    );
+};
+
+// Inside Skills component, replace the existing card div with TiltCard
+// ...
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8">
                 {category.skills.map((skill, skillIndex) => (
-                  <motion.div
+                  <TiltCard
                     key={skill.id}
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.05, rotateX: 5, rotateY: 5 }}
                     className={`group glass-card p-6 flex flex-col items-center justify-center gap-4 cursor-pointer relative overflow-hidden transition-all duration-300 hover:shadow-2xl ${skill.shadow}`}
                   >
                     {/* Floating Animation Wrapper */}
@@ -131,9 +165,10 @@ const Skills = () => {
                         {skill.title}
                         </p>
                     </motion.div>
-                  </motion.div>
+                  </TiltCard>
                 ))}
               </div>
+// ...
             </motion.div>
           ))}
         </div>

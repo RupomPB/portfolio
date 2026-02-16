@@ -18,6 +18,16 @@
   html {
      scroll-behavior: smooth;
   }
+  
+  /* Hide default cursor on desktop to show custom cursor */
+  @media (pointer: fine) {
+      body {
+          cursor: none;
+      }
+      a, button, input, textarea, .cursor-pointer {
+          cursor: none; /* Ensure custom cursor is seen over interactive elements */
+      }
+  }
 }
 
 @layer components {

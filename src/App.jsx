@@ -8,10 +8,16 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CustomCursor from './components/CustomCursor';
+import ScrollProgress from './components/ScrollProgress';
 
 function App() {
   return (
-    <div className="min-h-screen bg-base-100 text-base-content font-sans">
+    <div className="min-h-screen bg-base-100 text-base-content font-sans cursor-none"> {/* Hide default cursor here if desired, or let CustomCursor hande it via CSS override if needed */}
+       {/* Global Premium Effects */}
+      <CustomCursor />
+      <ScrollProgress />
+      
       <Navbar />
       
       <Hero />

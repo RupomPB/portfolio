@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-scroll';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaArrowRight, FaDownload } from 'react-icons/fa';
 
 const Hero = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const yImage = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,7 +44,7 @@ const Hero = () => {
   };
 
   return (
-    <div name="home" className="min-h-screen w-full bg-gradient-to-b from-white via-gray-100 to-gray-200 dark:from-black dark:via-gray-900 dark:to-gray-800 text-gray-900 dark:text-white overflow-hidden relative flex items-center transition-colors duration-300">
+    <div ref={ref} name="home" className="min-h-screen w-full bg-gradient-to-b from-white via-gray-100 to-gray-200 dark:from-black dark:via-gray-900 dark:to-gray-800 text-gray-900 dark:text-white overflow-hidden relative flex items-center transition-colors duration-300">
       {/* Animated Background Blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <motion.div 
@@ -59,6 +68,7 @@ const Hero = () => {
         
         {/* Left Side: Profile Image */}
         <motion.div 
+          style={{ y: yImage }}
           variants={imageVariants}
           initial="hidden"
           animate="visible"
@@ -87,6 +97,7 @@ const Hero = () => {
 
         {/* Right Side: Text Content */}
         <motion.div 
+          style={{ y: yText }}
           variants={containerVariants}
           initial="hidden"
           animate="visible"
