@@ -4,24 +4,16 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      role: 'MERN Stack Developer',
-      company: 'Freelance / Self-Employed',
-      date: '2023 - Present',
-      description: 'Developing full-stack web applications using MongoDB, Express, React, and Node.js. Building responsive UIs with Tailwind CSS and implementing secure authentication and payment gateways.'
-    },
-    {
-      id: 2,
-      role: 'Frontend Developer Intern',
-      company: 'Tech Startup (Placeholder)',
-      date: '2022 - 2023',
-      description: 'Collaborated with senior developers to build and maintain user-facing features. Optimized application performance and ensured cross-browser compatibility.'
-    },
-    {
-      id: 3,
-      role: 'Computer Science Student',
-      company: 'University Name (Placeholder)',
-      date: '2019 - 2023',
-      description: 'Gained a strong foundation in algorithms, data structures, and software engineering principles. Completed various academic projects involving web technologies.'
+      role: 'MERN Stack Developer (Professional Training)',
+      company: 'Programming Hero',
+      date: 'July 2025 - Dec 2025',
+      description: [
+        'Completed an intensive 6-month full-stack web development program mastering MongoDB, Express.js, React, and Node.js.',
+        'Built and deployed scalable web applications with secure authentication (JWT/Firebase) and RESTful APIs.',
+        'Developed responsive, mobile-first user interfaces using Tailwind CSS and modern React patterns.',
+        'Implemented complex CRUD operations and state management in real-world projects.',
+        'Gained hands-on experience with version control (Git/GitHub), debugging, and deployment workflows.'
+      ]
     }
   ];
 
@@ -48,7 +40,11 @@ const Experience = () => {
                     <p className="text-lg font-bold text-cyan-600 dark:text-cyan-500 mb-1">{company}</p>
                     <p className="text-sm text-gray-500 mb-6 font-mono tracking-wider">{date}</p>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed tracking-wide">{description}</p>
+                <ul className="list-disc list-outside ml-5 space-y-2 text-gray-600 dark:text-gray-400 leading-relaxed tracking-wide text-sm sm:text-base">
+                    {description.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                </ul>
               </div>
             </div>
           ))}

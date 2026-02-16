@@ -128,7 +128,7 @@ const Hero = () => {
             </Link>
             
             <a
-              href="/resume.pdf"
+              href="https://drive.google.com/file/d/1b3Y4pO9_Hj6M3I24d7s34z0Ij-rFnfFy/view?usp=drive_link"
               download={true}
               className="px-8 py-3.5 rounded-full border border-gray-300 dark:border-white/10 bg-white/50 dark:bg-white/5 text-purple-600 dark:text-purple-400 font-medium hover:bg-white/80 dark:hover:bg-white/10 hover:border-purple-500/50 hover:scale-105 transition-all duration-300 cursor-pointer backdrop-blur-md shadow-lg shadow-gray-200/50 dark:shadow-black/20 flex items-center"
             >
