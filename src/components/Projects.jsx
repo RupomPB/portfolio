@@ -17,7 +17,7 @@ const projects = [
     id: 2,
     title: 'Finease Project',
     description: 'Personal Finance Management platform allowing users to track income/expenses with visual charts. Features secure auth, transaction history, and instant UI updates.',
-    tech: ['React', 'Redux', 'Node.js', 'MongoDB', 'Recharts'],
+    tech: ['React', 'Node.js', 'MongoDB', 'Recharts', 'Express.js', 'Tailwind', 'Firebase'],
     live: 'https://finease-project.netlify.app/',
     client: 'https://github.com/RupomPB/Assignment-10-Personal-Finance-Management-App-client',
     server: 'https://github.com/RupomPB/Assignment-10-Personal-Finance-Management-App-server',
@@ -25,13 +25,13 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Game Project App',
-    description: 'A collaborative Game Project with real-time updates, drag-and-drop interface, and team collaboration features.',
-    tech: ['React', 'DaisyUi', 'Tailwind', 'JavaScript'],
-    live: 'https://game-project-09.netlify.app/',
-    client: 'https://github.com/RupomPB/game-project-assignment-9',
-    server: 'https://github.com/RupomPB/game-project-assignment-9',
-    image: 'https://i.ibb.co.com/WvFw6NtZ/image.png'
+    title: 'Auth Shop – Next.js Full Stack E-Commerce Application',
+    description: 'A collaborative Auth Shop  with real-time, gadget, updates, drag-and-drop interface, and Tech collaboration features.',
+    tech: ['next.js', 'DaisyUi', 'Tailwind', 'JavaScript','Node.js', 'Express.js', 'MongoDB',],
+    live: 'https://gadgethub-frontend-w84a.vercel.app/',
+    client: 'https://github.com/RupomPB/gadgethub-frontend',
+    server: 'https://github.com/RupomPB/gadgethub-server',
+    image: 'https://i.ibb.co.com/B24g0kkM/nextjs-ss.png'
   }
 ];
 
