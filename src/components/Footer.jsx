@@ -7,13 +7,31 @@ const Footer = () => {
       <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center px-4">
         
         <div className="flex gap-8 mb-8">
-            <a href="https://github.com/RupomPB" target="_blank" rel="noreferrer" className="p-3 rounded-full bg-white dark:bg-white/5 hover:bg-cyan-50 dark:hover:bg-cyan-500/20 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:-translate-y-1 transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-md">
+            <a 
+              href="https://github.com/RupomPB" 
+              target="_blank" 
+              rel="noreferrer" 
+              aria-label="GitHub Profile"
+              className="p-3 rounded-full bg-white dark:bg-white/5 hover:bg-cyan-50 dark:hover:bg-cyan-500/20 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:-translate-y-1 transition-[transform,background-color,color,box-shadow] duration-300 shadow-sm dark:shadow-none hover:shadow-md"
+            >
                 <FaGithub size={24} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="p-3 rounded-full bg-white dark:bg-white/5 hover:bg-blue-50 dark:hover:bg-blue-500/20 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:-translate-y-1 transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-md">
+            <a 
+              href="https://www.linkedin.com/in/rupom-pb/" 
+              target="_blank" 
+              rel="noreferrer" 
+              aria-label="LinkedIn Profile"
+              className="p-3 rounded-full bg-white dark:bg-white/5 hover:bg-blue-50 dark:hover:bg-blue-500/20 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:-translate-y-1 transition-[transform,background-color,color,box-shadow] duration-300 shadow-sm dark:shadow-none hover:shadow-md"
+            >
                 <FaLinkedin size={24} />
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="p-3 rounded-full bg-white dark:bg-white/5 hover:bg-blue-50 dark:hover:bg-blue-500/20 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:-translate-y-1 transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-md">
+            <a 
+              href="https://www.facebook.com/rupomPB" 
+              target="_blank" 
+              rel="noreferrer" 
+              aria-label="Facebook Profile"
+              className="p-3 rounded-full bg-white dark:bg-white/5 hover:bg-blue-50 dark:hover:bg-blue-500/20 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:-translate-y-1 transition-[transform,background-color,color,box-shadow] duration-300 shadow-sm dark:shadow-none hover:shadow-md"
+            >
                 <FaFacebook size={24} />
             </a>
         </div>

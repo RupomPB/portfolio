@@ -17,37 +17,72 @@ import {
   SiStripe,
 } from 'react-icons/si';
 
-const Skills = () => {
-  const categories = [
-    {
-      title: "Frontend Development",
-      skills: [
-        { id: 1, src: <FaHtml5 size={40} />, title: 'HTML', color: 'text-orange-500', shadow: 'shadow-orange-500/20' },
-        { id: 2, src: <FaCss3Alt size={40} />, title: 'CSS', color: 'text-blue-500', shadow: 'shadow-blue-500/20' },
-        { id: 3, src: <FaJs size={40} />, title: 'JavaScript', color: 'text-yellow-500 dark:text-yellow-400', shadow: 'shadow-yellow-400/20' },
-        { id: 4, src: <FaReact size={40} />, title: 'React', color: 'text-cyan-500 dark:text-cyan-400', shadow: 'shadow-cyan-400/20' },
-        { id: 5, src: <SiTailwindcss size={40} />, title: 'Tailwind', color: 'text-teal-500 dark:text-teal-400', shadow: 'shadow-teal-400/20' },
-      ]
-    },
-    {
-      title: "Backend Development",
-      skills: [
-        { id: 6, src: <FaNodeJs size={40} />, title: 'Node.js', color: 'text-green-600 dark:text-green-500', shadow: 'shadow-green-500/20' },
-        { id: 7, src: <SiExpress size={40} />, title: 'Express', color: 'text-gray-600 dark:text-gray-400', shadow: 'shadow-gray-500/20' },
-        { id: 8, src: <SiMongodb size={40} />, title: 'MongoDB', color: 'text-green-500 dark:text-green-400', shadow: 'shadow-green-400/20' },
-        { id: 11, src: <SiFirebase size={40} />, title: 'Firebase', color: 'text-yellow-500', shadow: 'shadow-yellow-500/20' },
-        { id: 12, src: <SiStripe size={40} />, title: 'Stripe', color: 'text-purple-600 dark:text-purple-500', shadow: 'shadow-purple-500/20' },
-      ]
-    },
-    {
-      title: "Tools & Version Control",
-      skills: [
-        { id: 9, src: <FaGitAlt size={40} />, title: 'Git', color: 'text-red-500', shadow: 'shadow-red-500/20' },
-        { id: 10, src: <FaGithub size={40} />, title: 'GitHub', color: 'text-gray-800 dark:text-white', shadow: 'shadow-gray-400/20' },
-      ]
-    }
-  ];
+const categories = [
+  {
+    title: "Frontend Development",
+    skills: [
+      { id: 1, src: <FaHtml5 size={40} />, title: 'HTML', color: 'text-orange-500', shadow: 'shadow-orange-500/20' },
+      { id: 2, src: <FaCss3Alt size={40} />, title: 'CSS', color: 'text-blue-500', shadow: 'shadow-blue-500/20' },
+      { id: 3, src: <FaJs size={40} />, title: 'JavaScript', color: 'text-yellow-500 dark:text-yellow-400', shadow: 'shadow-yellow-400/20' },
+      { id: 4, src: <FaReact size={40} />, title: 'React', color: 'text-cyan-500 dark:text-cyan-400', shadow: 'shadow-cyan-400/20' },
+      { id: 5, src: <SiTailwindcss size={40} />, title: 'Tailwind', color: 'text-teal-500 dark:text-teal-400', shadow: 'shadow-teal-400/20' },
+    ]
+  },
+  {
+    title: "Backend Development",
+    skills: [
+      { id: 6, src: <FaNodeJs size={40} />, title: 'Node.js', color: 'text-green-600 dark:text-green-500', shadow: 'shadow-green-500/20' },
+      { id: 7, src: <SiExpress size={40} />, title: 'Express', color: 'text-gray-600 dark:text-gray-400', shadow: 'shadow-gray-500/20' },
+      { id: 8, src: <SiMongodb size={40} />, title: 'MongoDB', color: 'text-green-500 dark:text-green-400', shadow: 'shadow-green-400/20' },
+      { id: 11, src: <SiFirebase size={40} />, title: 'Firebase', color: 'text-yellow-500', shadow: 'shadow-yellow-500/20' },
+      { id: 12, src: <SiStripe size={40} />, title: 'Stripe', color: 'text-purple-600 dark:text-purple-500', shadow: 'shadow-purple-500/20' },
+    ]
+  },
+  {
+    title: "Tools & Version Control",
+    skills: [
+      { id: 9, src: <FaGitAlt size={40} />, title: 'Git', color: 'text-red-500', shadow: 'shadow-red-500/20' },
+      { id: 10, src: <FaGithub size={40} />, title: 'GitHub', color: 'text-gray-800 dark:text-white', shadow: 'shadow-gray-400/20' },
+    ]
+  }
+];
 
+/* ---------------- Tilt Card ---------------- */
+const TiltCard = ({ children, className }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useTransform(y, [-50, 50], [15, -15]);
+  const rotateY = useTransform(x, [-50, 50], [-15, 15]);
+
+  const handleMouseMove = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    x.set((event.clientX - centerX) / 2);
+    y.set((event.clientY - centerY) / 2);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      style={{ rotateX, rotateY, transformPerspective: 1000 }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={className}
+      whileHover={{ scale: 1.05 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+const Skills = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -67,41 +102,6 @@ const Skills = () => {
     }
   };
 
-  /* ---------------- Tilt Card ---------------- */
-  const TiltCard = ({ children, className }) => {
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-
-    const rotateX = useTransform(y, [-50, 50], [15, -15]);
-    const rotateY = useTransform(x, [-50, 50], [-15, 15]);
-
-    const handleMouseMove = (event) => {
-      const rect = event.currentTarget.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-
-      x.set((event.clientX - centerX) / 2);
-      y.set((event.clientY - centerY) / 2);
-    };
-
-    const handleMouseLeave = () => {
-      x.set(0);
-      y.set(0);
-    };
-
-    return (
-      <motion.div
-        style={{ rotateX, rotateY, transformPerspective: 1000 }}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className={className}
-        whileHover={{ scale: 1.05 }}
-      >
-        {children}
-      </motion.div>
-    );
-  };
-
   return (
     <div
       name="skills"
@@ -110,14 +110,14 @@ const Skills = () => {
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <motion.div
-          animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
+          animate={{ x: [0, 40, 0], y: [0, -20, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[20%] left-[10%] w-[40%] h-[40%] bg-blue-400/10 dark:bg-blue-600/5 rounded-full blur-[120px]"
+          className="absolute top-[20%] left-[10%] w-[40%] h-[40%] bg-blue-400/10 dark:bg-blue-600/5 rounded-full blur-[64px] will-change-[transform]"
         />
         <motion.div
-          animate={{ x: [0, -50, 0], y: [0, 30, 0] }}
+          animate={{ x: [0, -40, 0], y: [0, 20, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[20%] right-[10%] w-[40%] h-[40%] bg-cyan-400/10 dark:bg-cyan-600/5 rounded-full blur-[100px]"
+          className="absolute bottom-[20%] right-[10%] w-[40%] h-[40%] bg-cyan-400/10 dark:bg-cyan-600/5 rounded-full blur-[64px] will-change-[transform]"
         />
       </div>
 

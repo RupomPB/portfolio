@@ -1,37 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const Highlight = ({ children, color }) => {
+  return (
+    <motion.span
+      className={`font-bold cursor-pointer inline-block ${color}`}
+      whileHover={{
+        scale: 1.05,
+        textShadow: "0px 0px 8px rgba(34,211,238,0.5)"
+      }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    >
+      {children}
+    </motion.span>
+  );
+};
+
 const About = () => {
-
-
-   const Highlight = ({ children, color }) => {
-    return (
-      <motion.span
-        className={`font-bold cursor-pointer inline-block ${color}`}
-        whileHover={{
-          scale: 1.08,
-          textShadow: "0px 0px 8px rgb(34,211,238)"
-        }}
-        transition={{ type: "spring", stiffness: 300 }}
-      >
-        {children}
-      </motion.span>
-    );
-  };
-
   return (
     <div name="about" className="w-full min-h-screen bg-gradient-to-b from-gray-200 to-white dark:from-gray-800 dark:to-black text-gray-900 dark:text-white py-32 relative overflow-hidden transition-colors duration-300">
        {/* Background Elements */}
        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-30">
         <motion.div 
-            animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
+            animate={{ x: [0, 40, 0], y: [0, -20, 0] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[10%] right-[5%] w-[30%] h-[30%] bg-purple-400/20 dark:bg-purple-600/20 rounded-full blur-[100px]"
+            className="absolute top-[10%] right-[5%] w-[30%] h-[30%] bg-purple-400/20 dark:bg-purple-600/20 rounded-full blur-[64px] will-change-[transform]"
         />
         <motion.div 
-            animate={{ x: [0, -50, 0], y: [0, 30, 0] }}
+            animate={{ x: [0, -40, 0], y: [0, 20, 0] }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-[10%] left-[5%] w-[30%] h-[30%] bg-cyan-400/20 dark:bg-cyan-600/20 rounded-full blur-[100px]"
+            className="absolute bottom-[10%] left-[5%] w-[30%] h-[30%] bg-cyan-400/20 dark:bg-cyan-600/20 rounded-full blur-[64px] will-change-[transform]"
         />
       </div>
 

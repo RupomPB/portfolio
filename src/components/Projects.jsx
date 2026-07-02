@@ -50,8 +50,8 @@ const Projects = () => {
     <div name="projects" className="w-full bg-gradient-to-b from-gray-200 to-white dark:from-gray-900 dark:to-black text-gray-900 dark:text-white py-32 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute top-0 left-0 w-full h-full -z-10">
-        <div className="absolute top-[20%] left-[10%] w-[30%] h-[30%] bg-blue-600/5 rounded-full blur-[120px] animate-pulse-slow"></div>
-        <div className="absolute bottom-[10%] right-[15%] w-[25%] h-[25%] bg-cyan-600/5 rounded-full blur-[100px] animate-pulse-slow"></div>
+        <div className="absolute top-[20%] left-[10%] w-[30%] h-[30%] bg-blue-600/5 rounded-full blur-[64px] animate-pulse-slow"></div>
+        <div className="absolute bottom-[10%] right-[15%] w-[25%] h-[25%] bg-cyan-600/5 rounded-full blur-[64px] animate-pulse-slow"></div>
       </div>
 
       <div className="max-w-screen-xl mx-auto px-4 flex flex-col gap-12">
@@ -91,6 +91,8 @@ const Projects = () => {
                   src={project.image}
                   alt={project.title}
                   loading="lazy"
+                  width={600}
+                  height={400}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1 will-change-transform"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>

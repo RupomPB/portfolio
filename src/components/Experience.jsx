@@ -1,22 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const experiences = [
+  {
+    id: 1,
+    role: 'MERN Stack Developer (Professional Training)',
+    company: 'Programming Hero',
+    date: 'July 2025 - Dec 2025',
+    description: [
+      'Completed an intensive 6-month full-stack web development program mastering MongoDB, Express.js, React, and Node.js.',
+      'Built and deployed scalable web applications with secure authentication (JWT/Firebase) and RESTful APIs.',
+      'Developed responsive, mobile-first user interfaces using Tailwind CSS and modern React patterns.',
+      'Implemented complex CRUD operations and state management in real-world projects.',
+      'Gained hands-on experience with version control (Git/GitHub), debugging, and deployment workflows.'
+    ]
+  }
+];
+
 const Experience = () => {
-  const experiences = [
-    {
-      id: 1,
-      role: 'MERN Stack Developer (Professional Training)',
-      company: 'Programming Hero',
-      date: 'July 2025 - Dec 2025',
-      description: [
-        'Completed an intensive 6-month full-stack web development program mastering MongoDB, Express.js, React, and Node.js.',
-        'Built and deployed scalable web applications with secure authentication (JWT/Firebase) and RESTful APIs.',
-        'Developed responsive, mobile-first user interfaces using Tailwind CSS and modern React patterns.',
-        'Implemented complex CRUD operations and state management in real-world projects.',
-        'Gained hands-on experience with version control (Git/GitHub), debugging, and deployment workflows.'
-      ]
-    }
-  ];
 
   return (
     <div name="experience" className="w-full min-h-screen bg-gradient-to-b from-white to-gray-200 dark:from-black dark:to-gray-800 text-gray-900 dark:text-white py-32 relative transition-colors duration-300">

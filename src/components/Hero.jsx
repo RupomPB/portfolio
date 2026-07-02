@@ -48,19 +48,19 @@ const Hero = () => {
       {/* Animated Background Blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <motion.div 
-          animate={{ x: [0, 100, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }}
+          animate={{ x: [0, 80, 0], y: [0, -40, 0], scale: [1, 1.1, 1] }}
           transition={{ duration: 15, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-          className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-[120px]"
+          className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-[64px] will-change-[transform,opacity]"
         />
         <motion.div 
-          animate={{ x: [0, -100, 0], y: [0, 50, 0], scale: [1, 1.3, 1] }}
+          animate={{ x: [0, -80, 0], y: [0, 40, 0], scale: [1, 1.15, 1] }}
           transition={{ duration: 18, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-          className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-400/20 dark:bg-cyan-600/10 rounded-full blur-[120px]"
+          className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-400/20 dark:bg-cyan-600/10 rounded-full blur-[64px] will-change-[transform,opacity]"
         />
         <motion.div 
-          animate={{ opacity: [0.05, 0.15, 0.05], scale: [1, 1.5, 1] }}
+          animate={{ opacity: [0.05, 0.15, 0.05], scale: [1, 1.25, 1] }}
           transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-          className="absolute top-[30%] left-[30%] w-[40%] h-[40%] bg-blue-400/10 dark:bg-blue-600/5 rounded-full blur-[150px]"
+          className="absolute top-[30%] left-[30%] w-[40%] h-[40%] bg-blue-400/10 dark:bg-blue-600/5 rounded-full blur-[80px] will-change-[transform,opacity]"
         />
       </div>
 
@@ -75,10 +75,10 @@ const Hero = () => {
           className="mb-10 md:mb-0 md:mr-16 flex-shrink-0 relative group"
         >
            {/* Background Halo Glow */}
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-gradient-to-r from-cyan-500/30 via-blue-500/30 to-purple-500/30 rounded-full blur-[60px] opacity-60 animate-pulse-slow"></div>
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-gradient-to-r from-cyan-500/30 via-blue-500/30 to-purple-500/30 rounded-full blur-[30px] opacity-60 animate-pulse-slow will-change-[opacity]"></div>
 
            {/* Glowing Gradient Ring */}
-           <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full blur opacity-40 group-hover:opacity-80 transition duration-1000 group-hover:duration-500"></div>
+           <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full blur-[4px] opacity-40 group-hover:opacity-80 transition-[opacity] duration-1000 group-hover:duration-500 will-change-[opacity]"></div>
            
            {/* Floating Animation Wrapper */}
            <motion.div
@@ -90,6 +90,8 @@ const Hero = () => {
                 src="https://i.ibb.co.com/8D0bT1bQ/Rupom.jpg" 
                 alt="Rupom Prosad Badhan" 
                 loading="eager"
+                width={450}
+                height={450}
                 className="relative rounded-full w-64 h-64 md:w-[450px] md:h-[450px] object-cover object-top shadow-2xl shadow-gray-400/50 dark:shadow-black/50 border-[4px] border-white/50 dark:border-white/10 z-10 will-change-transform"
               />
            </motion.div>

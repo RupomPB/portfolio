@@ -2,6 +2,42 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaWhatsapp, FaPaperPlane } from 'react-icons/fa';
 
+const contactInfo = [
+  {
+    id: 1,
+    icon: <FaEnvelope size={24} />,
+    title: 'Email',
+    value: 'rupombadhan111@gmail.com', // Placeholder, user can update
+    link: 'mailto:rupombadhan111@gmail.com',
+    color: 'text-cyan-500 dark:text-cyan-400',
+    bg: 'bg-cyan-100 dark:bg-cyan-500/10',
+    border: 'border-cyan-200 dark:border-cyan-500/20',
+    hover: 'group-hover:text-cyan-600 dark:group-hover:text-cyan-300'
+  },
+  {
+    id: 2,
+    icon: <FaPhone size={24} />,
+    title: 'Phone',
+    value: '+880 1568 115 886', // Placeholder
+    link: 'tel:+8801568115886',
+    color: 'text-blue-500 dark:text-blue-400',
+    bg: 'bg-blue-100 dark:bg-blue-500/10',
+    border: 'border-blue-200 dark:border-blue-500/20',
+    hover: 'group-hover:text-blue-600 dark:group-hover:text-blue-300'
+  },
+  {
+    id: 3,
+    icon: <FaWhatsapp size={24} />,
+    title: 'WhatsApp',
+    value: '+880 1568 115 886', // Placeholder
+    link: 'https://wa.me/8801568115886',
+    color: 'text-green-500 dark:text-green-400',
+    bg: 'bg-green-100 dark:bg-green-500/10',
+    border: 'border-green-200 dark:border-green-500/20',
+    hover: 'group-hover:text-green-600 dark:group-hover:text-green-300'
+  }
+];
+
 const Contact = () => {
   const [formData, setFormData] = React.useState({
     name: '',
@@ -47,55 +83,19 @@ const Contact = () => {
     }
   };
 
-  const contactInfo = [
-    {
-      id: 1,
-      icon: <FaEnvelope size={24} />,
-      title: 'Email',
-      value: 'rupombadhan111@gmail.com', // Placeholder, user can update
-      link: 'mailto:rupombadhan111@gmail.com',
-      color: 'text-cyan-500 dark:text-cyan-400',
-      bg: 'bg-cyan-100 dark:bg-cyan-500/10',
-      border: 'border-cyan-200 dark:border-cyan-500/20',
-      hover: 'group-hover:text-cyan-600 dark:group-hover:text-cyan-300'
-    },
-    {
-      id: 2,
-      icon: <FaPhone size={24} />,
-      title: 'Phone',
-      value: '+880 1568 115 886', // Placeholder
-      link: 'tel:+8801568115886',
-      color: 'text-blue-500 dark:text-blue-400',
-      bg: 'bg-blue-100 dark:bg-blue-500/10',
-      border: 'border-blue-200 dark:border-blue-500/20',
-      hover: 'group-hover:text-blue-600 dark:group-hover:text-blue-300'
-    },
-    {
-      id: 3,
-      icon: <FaWhatsapp size={24} />,
-      title: 'WhatsApp',
-      value: '+880 1568 115 886', // Placeholder
-      link: 'https://wa.me/8801568115886',
-      color: 'text-green-500 dark:text-green-400',
-      bg: 'bg-green-100 dark:bg-green-500/10',
-      border: 'border-green-200 dark:border-green-500/20',
-      hover: 'group-hover:text-green-600 dark:group-hover:text-green-300'
-    }
-  ];
-
   return (
     <div name="contact" className="w-full min-h-screen bg-gradient-to-b from-gray-200 to-white dark:from-gray-800 dark:to-black p-4 text-gray-900 dark:text-white py-32 relative overflow-hidden transition-colors duration-300">
       {/* Background Ambience */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
          <motion.div 
-            animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
+            animate={{ x: [0, 40, 0], y: [0, -20, 0] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[20%] right-[10%] w-[40%] h-[40%] bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-[120px]"
+            className="absolute top-[20%] right-[10%] w-[40%] h-[40%] bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-[64px] will-change-[transform]"
          />
          <motion.div 
-            animate={{ x: [0, -50, 0], y: [0, 30, 0] }}
+            animate={{ x: [0, -40, 0], y: [0, 20, 0] }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-[10%] left-[10%] w-[30%] h-[30%] bg-cyan-400/10 dark:bg-cyan-600/10 rounded-full blur-[100px]"
+            className="absolute bottom-[10%] left-[10%] w-[30%] h-[30%] bg-cyan-400/10 dark:bg-cyan-600/10 rounded-full blur-[64px] will-change-[transform]"
          />
       </div>
 
